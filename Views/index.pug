@@ -8,3 +8,12 @@ html
         ul
             each article, i in articles
                 li=article.name
+        form(method='POST', action='/')
+            #form-group
+                label Name:
+                input.form-control(name='name', type='text')
+            #form-group
+                label Author:
+                input.form-control(name='author', type='text')
+            input.btn.btn-primary(type='submit',value='Submit')
+

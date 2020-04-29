@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         author: req.body.author
     });
     genre = await genre.save();
-    res.send(genre);
+    res.redirect('/');
 });
 
 router.put('/:id', async (req,res) => {
