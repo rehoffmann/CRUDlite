@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+        title Welcome to the Webapp
+    body
+    block content
+        h1 #{title}
+        ul
+            each article, i in articles
+                li=article.name
