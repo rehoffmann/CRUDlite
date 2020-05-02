@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser= require('body-parser');
 const home = require ('./Routes/home');
 const app = express();
+app.locals.moment = require('moment');
 
 //store MongoDB cluster connection string, also set which database to use
 const dbConnectionUrl = "mongodb+srv://rhoffmann:meme6149TOO@cluster0-ah1ec.mongodb.net/databaseName?retryWrites=true&w=majority";
@@ -21,6 +22,7 @@ mongoose.connect(dbConnectionUrl,  { useNewUrlParser: true, useUnifiedTopology: 
 
 //define new Schema Class
 
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', home);

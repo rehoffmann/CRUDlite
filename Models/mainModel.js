@@ -6,11 +6,11 @@ const newSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    author: {
+    body: {
         type: String,
         required: true
     },
-    tags: [String]
+    date: {type: Date, default: Date.now}
 });
 
 //create model for Schema, determine which collection to store it in
@@ -20,7 +20,7 @@ const schemaModel = mongoose.model('webapp-lite', newSchema);
 function validateGenre(genre) {
     const schema = {
       name: Joi.string().min(3).required(),
-      author: Joi.string()
+      body: Joi.string()
     };
   
     return Joi.validate(genre, schema);

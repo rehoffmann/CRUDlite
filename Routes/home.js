@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req,res) => {
         //find all documents for class, can add query filters/regular expressions
-        const data = await schemaModel.find().sort('name');
+        const data = await schemaModel.find().sort("name");
         //res.send(data);
         res.render('index', {
             title: 'Hello',
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     
     let genre = new schemaModel( {
         name: req.body.name,
-        author: req.body.author
+        body: req.body.body
     });
     genre = await genre.save();
     res.redirect('/');
@@ -48,6 +48,15 @@ router.put('/:id', async (req,res) => {
    
     res.send(data);
 });
+
+router.delete('/:name', async (req,res) => {
+    const data = await schemaModel.deleteMany({name: req.params.name}, {useFindAndModify: false});
+
+    if (!data) return res.status(404).send('Not Found');
+    //delete
+
+    res.send(data);
+})
 
 router.delete('/:id', async (req,res) => {
     const data = await schemaModel.findByIdAndRemove(req.params.id, {useFindAndModify: false});

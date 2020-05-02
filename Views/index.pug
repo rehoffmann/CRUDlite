@@ -2,18 +2,32 @@ doctype html
 html
     head
         title Welcome to the Webapp
+        link(rel='stylesheet' href='bootstrap.css')
     body
-    block content
-        h1 #{title}
-        ul
-            each article, i in articles
-                li=article.name
-        form(method='POST', action='/')
-            #form-group
-                label Name:
-                input.form-control(name='name', type='text')
-            #form-group
-                label Author:
-                input.form-control(name='author', type='text')
-            input.btn.btn-primary(type='submit',value='Submit')
+
+    .container
+        .read
+            .list
+                each article, i in articles
+                    .list-row
+                        .list-number= i+1
+                        .list-item
+                            .item-top-row
+                                .item-name= "Name: " + article.name
+                                .item-date= moment(article.date).format("MM/DD/YYYY")
+                            .item-content= "Content: " + article.body
+
+        .create
+            form(method='POST', action='/')
+                #form-group
+                    label Name:
+                    input.form-control(name='name', type='text')
+                #form-group
+                    label What would you like to say?
+                    input.form-control(name='body', type='text')
+                input.btn.btn-primary(type='submit',value='Submit')
+        .update
+
+        .delete
+        
 
