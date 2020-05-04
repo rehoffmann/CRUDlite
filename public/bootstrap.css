@@ -1,6 +1,5 @@
 body{
     background: #eee;
-    overflow: hidden;
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -28,16 +27,10 @@ body{
 
   .read {
     grid-area: read;
-    min-height: 0;
+    border-left:thin solid black;
+    border-bottom:thin solid black;
     padding-top: 600px;
-    max-height: 100%;
-      display: flex;
-      flex-direction: column;
-      overflow: scroll;
-      justify-content: center;
-      align-items: center;
-      border-left:thin solid black;
-      border-bottom:thin solid black;
+    overflow: auto;
   }
 
   .update{
@@ -56,6 +49,7 @@ body{
   }
 
 
+
   .list{
     display: flex;
     flex-direction: column;
@@ -67,8 +61,6 @@ body{
 
   .list-row{
       display: inline-flex;
-      width:500px;
-      height:300px;
   }
 
   .list-number{
@@ -79,24 +71,21 @@ body{
 
   .list-item{
       display: block;
-      width: 100%;
+      width: 500px;
       max-height: fit-content;
       margin: 10px;
       padding: 10px;
       background: whitesmoke;
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
   }
-
   .item-top-row{
       display: flex;
   }
-
   .item-date{
       margin-left: auto;
       font-size: small;
       color: #B0B0B0;
   }
-
   .item-content{
       padding-top: 10px;
   }

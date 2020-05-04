@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req,res) => {
         //find all documents for class, can add query filters/regular expressions
-        const data = await schemaModel.find().sort("name");
+        const data = await schemaModel.find().sort('date');
         //res.send(data);
         res.render('index', {
             title: 'Hello',
